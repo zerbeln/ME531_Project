@@ -18,6 +18,9 @@ def pid_controller(k_p, k_d, k_i, n_epochs=200, speed=1.0):
         d_error = rc.y - prev_cte  # Derivative of cross-track error
         prev_cte = rc.y
         steer = -(k_p*rc.y) - (k_d*d_error) - (k_i*sum_err)
+        print(steer)
+        print(speed)
+        print("")
         rc.move(steer, speed)
         x_trajectory.append(rc.x)
         y_trajectory.append(rc.y)
